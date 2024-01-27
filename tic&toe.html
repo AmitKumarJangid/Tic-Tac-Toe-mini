@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tic & Toe Game">
+    <title>TIC & TOE</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .base {
+            color: aliceblue;
+            background-color: rgb(27, 21, 21);
+            height: 10vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .head {
+            color: aliceblue;
+            background-color: rgb(27, 21, 21);
+            height: 15vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .title {
+            height: 15vh;
+            width: 35vw;
+            font-size: xx-large;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 1.5vh;
+        }
+
+        .keys {
+            margin-top: 1vh;
+            width: 20vw;
+            display: flex;
+            justify-content: space-between;
+            padding: 0vh 7vh;
+        }
+
+       
+
+        .restart {
+            position: relative;
+            left: 14vh;
+            width: 13vh;
+            border: 2.5px solid black;
+            border-radius: 2.5px;
+        }
+
+        .topic {
+            width: 100vw;
+            border-bottom: 2px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn:hover {
+            background-color: blue;
+            color: aliceblue;
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        .main {
+            display: flex;
+            width: 100vw;
+            height: calc(100vh - 25vh);
+        }
+
+        .content {
+            height: 50vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 8vh;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto auto auto;
+            grid-row-gap: 2px;
+            grid-column-gap: 2px;
+            height: 45vh;
+            width: 45vh;
+            position: relative;
+            left: 15vh;
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 16vh;
+            width: 16vh;
+            border: 2px solid black;
+            
+            color: black;
+        }
+
+        
+
+        .boxtext {display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 9vh;
+            font-weight: bold;
+            color: black;
+            
+           
+            cursor: pointer;
+        }
+
+            
+       
+
+        .display {
+            position: relative;
+            left: 30vh;
+            width: 90vh;
+            height: 50vh;
+            margin: 10vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dtitle {
+            width: 90vh;
+            height: 12vh;
+            position: relative;
+            bottom: 0vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5vh;
+        }
+
+        .info {
+            width: 90vh;
+            position: relative;
+            bottom: 0vh;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gif {
+            width: 50vh;
+            height: 30vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gif img {
+            width: 0;
+            transition: width 1s ease-in-out;
+        }
+
+        .br-1 {
+            border-top: 0;
+            border-left: 0;
+        }
+
+        .br-2 {
+            border-left: 0;
+        }
+
+        .br-3 {
+            border-left: 0;
+            border-bottom: 0;
+        }
+
+        .br-4 {
+            border-bottom: 0;
+        }
+
+        .br-5 {
+            border-bottom: 0;
+            border-right: 0;
+        }
+
+        .br-6 {
+            border-right: 0;
+        }
+
+        .br-7 {
+            border-right: 0;
+            border-top: 0;
+        }
+
+        .br-8 {
+            border-top: 0;
+        }
+        .line{height: 0.4vh;
+        width: 0vh;
+   background-color: rgb(26, 233, 123);
+   position: absolute;
+   left: 5.3vh;
+   transition: width 0.1s ease-in-out;
+
+ 
+}
+
+.boxtext:hover{transition:  0.9s ease-in-out;
+    background-color: rgb(169, 249, 249);
+}
+     
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1);
+        color: black;
+    }
+    100% {
+        transform: scale(2.0);
+        color: rgb(13, 17, 248);
+    }
+}
+
+@media screen and (max-width:1000px){
+    
+    .main {position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+           min-height:calc(150vh - 25vh);}
+    .content{
+        width: 100vw;
+        height: 75vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .container{
+        
+        position: absolute;
+      bottom: 60vh;
+       right: 80vh;
+    }
+    .display{
+        position: absolute;
+      top: 10vh;
+       
+    height: 50vh;
+width: 60vh;
+
+
+}
+    .dtitle{font-size: 2vh;
+    position: relative;
+right: 40vh;}
+    .info{font-size: 1vh;
+        position: relative;
+right: 40vh;}
+    .gif{height: 15vh;
+    width: 20vh;
+    position: relative;
+right: 40vh;
+top: 5vh;}
+.keys{position: relative;}
+.restart{position:absolute;right: 20vh;}
+.title{font-size: large;
+display: flex;
+justify-content: center;
+align-items: center;}
+.head{height: 20vh;}
+.body{overflow: hidden;}
+};
+
+
+
+</style>
+</head>
+
+<body><div class="body">
+    <header>
+        <div class="head">
+            <div class="title">
+                <div class="topic">
+                    <h1> Tic Tac Toe</h1>
+                </div>
+                <div class="keys">
+                    <button type="button" class="btn restart">RESTART</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main">
+            <div class="content">
+                <div class="container">
+                    <div class="line"></div>
+                    <div class="br-1 box"><span><button class="boxtext" ></button></span></div>
+                    <div class="br-8 box"><span><button class="boxtext"></button></span></div>
+                    <div class="br-7 box"><span><button class="boxtext"></button></span></div>
+                    <div class="br-2 box"><span><button class="boxtext"></button></span></div>
+                    <div class="box"><span><button class="boxtext"></button></span></div>
+                    <div class="br-6 box"><span><button class="boxtext"></button></span></div>
+                    <div class="br-3 box"><span><button class="boxtext"></button></span></div>
+                    <div class="br-4 box"><span><button class="boxtext"></button></span></div>
+                    <div class="br-5 box"><span><button class="boxtext"></button></span></div>
+                </div>
+                <div class="display">
+                    <div class="dtitle"><h1>Tic Tac Toe</h1></div>
+                    <div class="info"><h2>Turn of ..... X</h2></div>
+                    <div class="gif">
+                        <img src="https://media.tenor.com/VFhiy-TvMkEAAAAi/hello-kitty-congratulations.gif" height="200vh" alt="Hello Kitty GIF">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="base">
+            <p> Copyright &copy; All Rights Reserved Flipkart | Developed By <span><a style="color: rgb(136, 136, 189)" href="https://www.linkedin.com/in/amit-kumar-jangid-21541928b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ">Amit Kumar Jangid</a></span></p>
+        </div>
+    </footer>
+    <script>
+        let turn = "X";
+        let isgameover = false;
+    
+        function changeturn() {
+            return turn === "X" ? "O" : "X";
+        }
+    
+        function checkwin() {
+            let wins = [
+                [0,1,2,0,8,0],
+                [0,3,6,-17,23,90],
+                [0,4,8,0,24.3,45],
+                [2,5,8,16,24,90],
+                [2,4,6,0,23,-45],
+                [1,4,7,0,24,90],
+                [3,4,5,0,24,0],
+                [6,7,8,0,41,0]
+            ];
+            let boxtext = document.querySelectorAll(".boxtext");
+
+            wins.forEach(e => {
+                if (
+                    boxtext[e[0]].innerText === boxtext[e[1]].innerText &&
+                    boxtext[e[2]].innerText === boxtext[e[1]].innerText &&
+                    boxtext[e[0]].innerText !== ""
+                ) {
+                    isgameover = true;
+                    document.getElementsByClassName('info')[0].innerText = boxtext[e[0]].innerText + " WINS !!";
+                    document.querySelector('.gif img').style.width = "200vh";
+                    document.getElementsByClassName('info')[0].style.fontSize = "3vh";
+                    document.getElementsByClassName('info')[0].style.fontWeight = "bold";
+                    document.getElementsByClassName('info')[0].style.animation = 'zoomInOut 1s infinite alternate ease-in-out';
+                    document.querySelector('.line').style.transform = `translate(${e[3]}vh,${e[4]}vh) rotate(${e[5]}deg)`;
+                    document.querySelector('.line').style.width = "40vh";
+                   
+                        
+                       
+                    boxtext.forEach(element => {
+                        element.disabled = true;
+                    })
+              
+            };
+            if (
+    (boxtext[e[0]].innerText !== boxtext[e[1]].innerText ||
+    boxtext[e[2]].innerText !== boxtext[e[1]].innerText ||
+    boxtext[e[0]].innerText !== boxtext[e[2]].innerText) &&
+    Array.from(boxtext).every(element => element.innerText !== "")
+) {
+    document.getElementsByClassName('info')[0].innerText = "RESTART THE GAME";
+    document.getElementsByClassName('info')[0].style.fontSize = "3vh";
+    document.getElementsByClassName('info')[0].style.fontWeight = "bold";
+    document.getElementsByClassName('info')[0].style.animation = 'zoomInOut 1s infinite alternate ease-in-out';
+    isgameover = true;
+}
+
+            })};
+            let boxtext = document.querySelectorAll(".boxtext");
+            boxtext.forEach(element => {
+                        element.style.width = "16vh";
+                        element.style.height = "16vh";
+                        
+                        
+                    });
+    
+        
+        document.getElementsByClassName('info')[0].style.fontSize = '20px';
+    
+        let boxes = document.querySelectorAll(".boxtext");
+    
+        boxes.forEach(element => {
+            console.log(element);
+            element.addEventListener('click', () => { console.log('check');
+                if (element.innerHTML == "") {
+                    element.innerHTML = turn;
+                    console.log(turn);
+                    turn = changeturn();
+                    checkwin();
+    
+                    if (!isgameover) {
+                        document.getElementsByClassName('info')[0].fontSize = "8vh";
+                        document.getElementsByClassName('info')[0].innerText = "Turn of ...." + turn;
+                    }
+                }
+            });
+        });
+        
+    
+        reset = document.getElementsByClassName('btn restart')[0];
+        reset.addEventListener('click', () => {
+            let boxtexts = document.querySelectorAll(".boxtext");
+            boxtexts.forEach(element => {
+                element.innerText = "";
+            });
+    
+            turn = "X";
+            isgameover = false;
+    
+            document.getElementsByClassName('info')[0].innerText = "Turn of ...." + turn;
+            document.querySelector('.gif img').style.width = "0";
+            document.querySelector('.line').style.width = "0vh"
+        
+            boxtext.forEach(element => {
+                            element.disabled = false;})
+            
+        });
+    </script>
+    
+    
+</div>
+</body>
+
+</html>
